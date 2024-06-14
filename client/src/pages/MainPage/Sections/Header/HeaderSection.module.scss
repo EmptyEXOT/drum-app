@@ -1,0 +1,21 @@
+.shine {
+  transform: translate(-50%, -50%);
+  opacity: .99;
+}
+
+.image {
+  //position: absolute;
+  //top: 50%;
+  //width: 100vw;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
+
+  img {
+    position: relative;
+    object-fit: contain;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+}

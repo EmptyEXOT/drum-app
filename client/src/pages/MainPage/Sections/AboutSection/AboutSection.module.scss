@@ -1,0 +1,16 @@
+.image {
+  //position: absolute;
+  //top: 50%;
+  width: 100%;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
+
+  img {
+    position: relative;
+    object-fit: contain;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+}
