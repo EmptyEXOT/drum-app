@@ -1,0 +1,24 @@
+@mixin themeButton($theme) {
+  border-color: $theme;
+  color: $theme;
+}
+
+@mixin base {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.primary {
+  @include base;
+}
+
+.dark {
+  @include themeButton(theme('colors.primary-light'));
+}
+
+.light {
+  @include themeButton(theme('colors.primary-dark'));
+}

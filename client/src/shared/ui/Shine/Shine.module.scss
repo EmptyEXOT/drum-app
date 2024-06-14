@@ -1,0 +1,9 @@
+$orange: rgba(198, 165, 49, 0.25);
+$cian: rgba(27, 188, 178, 0.25);
+$pink: rgba(215, 45, 218, 0.12);
+
+.shine {
+  background: linear-gradient(90deg, $orange, $cian, $pink);
+  filter: blur(100px);
+}
+

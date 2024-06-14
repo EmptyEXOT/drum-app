@@ -1,0 +1,36 @@
+.typo {
+
+}
+
+h1 {
+  @apply text-3xl
+}
+
+h2 {
+  @apply text-2xl
+}
+
+h3 {
+  @apply text-xl
+}
+
+h4 {
+  @apply text-lg
+}
+
+h5 {
+  @apply text-lg sm:text-base
+}
+
+h6 {
+  @apply text-base sm:text-sm
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: Roboto, serif;
+  width: 100%;
+}
+
+p {
+  @apply text-[17px]
+}
