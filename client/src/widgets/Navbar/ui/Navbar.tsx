@@ -1,15 +1,13 @@
-import React, {FC, ReactNode, useEffect} from 'react';
+import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
 import cls from "./Navbar.module.scss"
 import Menu from "@/widgets/Navbar/ui/Menu/Menu";
-import Button, {ButtonVariant} from "@/shared/ui/Button/Button";
+import {ButtonVariant, Button} from "@/shared/ui/Button/Button";
 import Burger from "@/shared/ui/Burger/Burger";
-import Logo from '@/shared/assets/Logo.png'
+import Logo from '@/shared/assets/Logo2.png'
 import {useNavbar} from "@/widgets/Navbar/hooks/useNavbar";
 import {useNavbarDispatch} from "@/widgets/Navbar/hooks/useNavbarDispatch";
 import {NavbarActionType} from "@/widgets/Navbar/types";
-import {Link} from "react-router-dom";
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
 import {Navigation} from "@/widgets/Navbar/ui/Navigation/Navigation";
 
 interface NavbarProps {
@@ -41,11 +39,11 @@ export const Navbar: FC<NavbarProps> = (
     return (
         <>
             <div
-                className={classNames('bg-dark-primary md:bg-primary-dark z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md border-solid border-2 border-b-neutral-500', cls.navbar)}>
+                className={classNames('bg-primary-dark md:bg-primary-dark z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md border-solid border-2 border-b-neutral-500', cls.navbar)}>
                 <div className={classNames('container flex justify-between mx-auto px-4 py-3 z-50')}>
                     <div className={classNames('flex gap-6')}>
                         <div className={classNames('flex flex-col justify-center w-full')}>
-                            <img width={52} src={Logo} alt=""/>
+                            <img width={30} src={Logo} alt=""/>
                         </div>
                     </div>
                     <div className={classNames('flex gap-2')}>
@@ -62,7 +60,7 @@ export const Navbar: FC<NavbarProps> = (
                         {/*</Link>*/}
                         <Button onClick={switchIsOpen}
                                 variant={ButtonVariant.Primary}
-                                className={classNames('pe-0 md:hidden')}>
+                                className={classNames('pe-0 md:!hidden')}>
                             <Burger isOpen={isOpen}/>
                         </Button>
                     </div>
