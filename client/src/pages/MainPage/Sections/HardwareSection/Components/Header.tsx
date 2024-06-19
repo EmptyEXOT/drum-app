@@ -13,11 +13,6 @@ export const Header: FC<HeaderProps> = ({
                                         }) => {
     return (
         <>
-            <Typo.H4 weight={TypoWeight.Extrabold}
-                     className={classNames(
-                         'order-1',
-                     )}
-            >REVOLUTIONARY</Typo.H4>
             <Typo.H2 weight={TypoWeight.Bold}
                      className={classNames(
                          'order-2',

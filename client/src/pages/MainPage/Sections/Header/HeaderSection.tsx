@@ -3,9 +3,10 @@ import classNames from "classnames";
 import {Shine} from "@/shared/ui/Shine/Shine";
 import DrumImage from "@/pages/MainPage/assets/DrumDark.png";
 import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import Button, {ButtonVariant} from "@/shared/ui/Button/Button";
+import {ButtonVariant, Button} from "@/shared/ui/Button/Button";
 import {TypoAlign, TypoWeight} from "@/shared/ui/Typo/types";
 import {Section} from "@/shared/ui/Section/Section";
+import {Img} from "@/shared/ui/Image/Img";
 
 interface HeaderSectionProps {
     children?: ReactNode,
@@ -37,48 +38,44 @@ export const HeaderSection: FC<HeaderSectionProps> = ({
                         weight={TypoWeight.Bold}
                         className={classNames(
                             '',
-                            'md:text-4xl',
                         )}
                     >
-                        App
-                        Name</Typo.H1>
+                        App Name
+                    </Typo.H1>
                     <Typo.H3
                         align={TypoAlign.Center}
                         variant={TypoVariant.SecondaryLight}
-                        className={classNames(
-                            '',
-                            'md:text-2xl',
-                        )}
-                    >A drumming exercise app designed to help you improve your skills and have hours of fun!</Typo.H3>
+                    >
+                        A drumming exercise app designed to help you improve your skills and have hours of fun!
+                    </Typo.H3>
                 </div>
 
                 {/* Try now button */}
                 <Button
                     variant={ButtonVariant.Primary}
-                    onClick={() => {
-                        console.log('click')
-                    }}
                     className={classNames('px-4 py-2 order-3 w-fit')}
+                    border
                 >
                     Try Now
                 </Button>
             </div>
 
-            {/* Image */}
+            {/* Img */}
             <div className={classNames(
                 'relative order-2',
                 'md:order-first md:w-[50%]',
             )}>
-                <div className={classNames(
-                    'z-30 h-[50vh]',
-                    'md:h-auto',
-                )}>
-                    <img className={classNames(
-                        'relative left-[50%] -translate-x-[50%] object-contain h-full z-30'
-                    )} src={DrumImage} alt=""/>
-                </div>
+                <Img src={DrumImage} alt={'Drum'}/>
+                {/*<div className={classNames(*/}
+                {/*    'z-30 h-[50vh]',*/}
+                {/*    'md:h-auto',*/}
+                {/*)}>*/}
+                {/*    <img className={classNames(*/}
+                {/*        'relative left-[50%] -translate-x-[50%] object-contain h-full z-30'*/}
+                {/*    )} src={DrumImage} alt=""/>*/}
+                {/*</div>*/}
                 <Shine className={classNames(
-                    'left-0 top-0 right-0 bottom-0 absolute',
+                    'left-0 top-0 right-0 bottom-0 absolute opacity-20',
                 )}/>
             </div>
         </Section>

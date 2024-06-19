@@ -15,9 +15,7 @@ export const Header: FC<HeaderProps> = ({
         <Typo.H3
             weight={TypoWeight.Regular}
             align={TypoAlign.Center}
-            className={classNames(
-                'md:text-start px-4',
-            )}
+            className={classNames('px-4')}
         >
             Track Your Progress and Stay Motivated
         </Typo.H3>
