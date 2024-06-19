@@ -4,7 +4,6 @@ import webpack from "webpack";
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
-    /** Expose public folder to storybook as static */
     staticDirs: ["../public"],
     addons: [
         "@storybook/addon-links",
@@ -34,35 +33,26 @@ const config: StorybookConfig = {
             preferAbsolute: true,
             modules: [path.resolve(__dirname, '..', 'node_modules')],
             mainFiles: ['index'],
-            alias: {'@': path.resolve(__dirname, '..', 'src')}
+            alias: {'@': path.resolve(__dirname, '..', 'src'), 'assets': path.resolve(__dirname, '..', 'src', 'shared', 'assets')}
         }
 
-        //@ts-ignore
-        config?.module?.rules = config?.module?.rules.map(
-            //@ts-ignore
-            (rule: webpack.RuleSetRule) => {
-                if (/svg/.test(rule.test as string)) {
-                    return {...rule, exclude: /\.svg$/i};
-                }
-                return rule;
-            },
-        );
+        const imageRule = config.module?.rules?.find(rule => {
+            const test = (rule as { test: RegExp }).test
 
-        //@ts-ignore
-        config.module.rules.push({
+            if (!test) {
+                return false
+            }
+
+            return test.test('.svg')
+        }) as { [key: string]: any }
+
+        imageRule.exclude = /\.svg$/
+
+        config.module?.rules?.push({
             test: /\.svg$/,
-            use: [
-                {
-                    loader: '@svgr/webpack',
-                    options: {
-                        native: false,
-                    },
-                },
-            ],
-            issuer: /\.[jt]sx?$/,
+            use: ['@svgr/webpack']
         })
 
-        // SASS + Tailwdind CSS
         //@ts-ignore
         config.module.rules.push({
             test: /\.s(a|c)ss$/,
