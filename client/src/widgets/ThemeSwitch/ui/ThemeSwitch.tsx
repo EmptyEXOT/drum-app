@@ -1,5 +1,5 @@
 import React, {FC, ReactNode} from 'react';
-import Button, {ButtonVariant} from "@/shared/ui/Button/Button";
+import {ButtonVariant, Button} from "@/shared/ui/Button/Button";
 import {useThemeDispatch} from "@/shared/theme/hooks/useThemeDispatch";
 import {ThemeActionsType} from "@/shared/theme/types";
 import {useTheme} from "@/shared/theme/hooks/useTheme";

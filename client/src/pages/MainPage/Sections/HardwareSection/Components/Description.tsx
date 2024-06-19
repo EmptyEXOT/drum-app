@@ -14,10 +14,10 @@ export const Description: FC<DescriptionProps> = ({
         <Typo.P variant={TypoVariant.SecondaryLight}
                 className={classNames(
                     'order-3',
-                    'md:text-xl'
                 )}
         >
-            Our innovative ultimate tool for drummers of all levels.
+            Take your drumming to the next level with our digital drum pad! Whether you're just starting out or a
+            seasoned pro, our cool features and easy-to-use interface will help you level up your skills.
         </Typo.P>
     );
 };

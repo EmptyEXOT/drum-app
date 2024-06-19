@@ -17,10 +17,10 @@ const Burger: FC<BurgerProps> = (
 ) => {
     return (
         <div className={classNames(cls.navIcon, 'self-center', props.className, isOpen ? cls.open : '')}>
-            <span className={classNames('h-1 bg-light-secondary')}></span>
-            <span className={classNames('h-1 bg-light-secondary')}></span>
-            <span className={classNames('h-1 bg-light-secondary')}></span>
-            <span className={classNames('h-1 bg-light-secondary')}></span>
+            <span className={classNames('h-1 bg-secondary-light')}></span>
+            <span className={classNames('h-1 bg-secondary-light')}></span>
+            <span className={classNames('h-1 bg-secondary-light')}></span>
+            <span className={classNames('h-1 bg-secondary-light')}></span>
         </div>
     );
 };

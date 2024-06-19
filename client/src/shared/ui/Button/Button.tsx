@@ -6,26 +6,31 @@ import {Theme} from "@/shared/theme/types";
 
 export enum ButtonVariant {
     Primary = 'primary',
+    Secondary = 'secondary',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     className?: string;
     variant: ButtonVariant;
+    border?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
                                      children,
                                      className,
                                      variant,
+                                     border = false,
                                      ...props
                                  }) => {
     const {theme} = useTheme()
 
     const calcTheme = (theme: Theme) => {
         switch (theme) {
-            case Theme.Light: return 'light';
-            case Theme.Dark: return 'dark';
+            case Theme.Light:
+                return 'light';
+            case Theme.Dark:
+                return 'dark';
         }
     }
 
@@ -34,13 +39,11 @@ const Button: FC<ButtonProps> = ({
                 className={classNames(
                     cls[variant],
                     cls[calcTheme(theme)],
+                    border && cls.border,
+                    'text-xl',
                     className,
-                    'text-lg',
                 )}>
             {children}
         </button>
     );
 };
-
-
-export default Button;

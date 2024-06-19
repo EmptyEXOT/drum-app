@@ -23,9 +23,6 @@ export const AboutSection: FC<AboutSectionProps> = ({
             <Typo.H2
                 weight={TypoWeight.Bold}
                 align={TypoAlign.Center}
-                className={classNames(
-                    'md:text-start md:w-full'
-                )}
             >
                 One app for practicing drums
             </Typo.H2>

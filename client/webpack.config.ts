@@ -15,7 +15,8 @@ export default (env: BuildEnv): webpack.Configuration => {
         src: path.resolve(__dirname, 'src'),
         alias: {
             src: path.resolve(__dirname, 'src'),
-            public: path.resolve(__dirname, 'public')
+            public: path.resolve(__dirname, 'public'),
+            assets: path.resolve(__dirname, 'src', 'shared', 'assets'),
         }
     }
     const props: Props = {

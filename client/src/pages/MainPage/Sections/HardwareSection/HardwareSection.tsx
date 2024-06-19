@@ -1,16 +1,14 @@
 import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import {TypoWeight} from "@/shared/ui/Typo/types";
-import cls from "@/pages/MainPage/Sections/AboutSection/AboutSection.module.scss";
-import BassDrumIcon from '@/shared/assets/BassDrumIcon.png'
-import EasyIcon from '@/shared/assets/EasyIcon.png'
-import MetronomeIcon from '@/shared/assets/MetronomeIcon.png'
-import ShoppingCartIcon from '@/shared/assets/ShoppingCartIcon.png'
-import Button, {ButtonVariant} from "@/shared/ui/Button/Button";
+import ShieldIcon from 'assets/ShieldIcon.svg'
+import SettingIcon from 'assets/SettingsIcon.svg'
+import ShoppingIcon from 'assets/ShoppingIcon.svg'
+import {ButtonVariant, Button} from "@/shared/ui/Button/Button";
 import {Section} from "@/shared/ui/Section/Section";
 import {Header} from './Components/Header'
 import {Description} from './Components/Description'
+import {Block} from "./Components/Block";
+import {Img} from "@/shared/ui/Image/Img";
 
 interface HardwareSectionProps {
     children?: ReactNode,
@@ -31,39 +29,35 @@ export const HardwareSection: FC<HardwareSectionProps> = ({
                 'contents',
                 'md:flex md:flex-col md:basis-1/2 md:gap-8'
             )}>
-                <Header />
-                <Description />
-                <div className={classNames('flex flex-col gap-6 order-5 justify-start w-full')}>
-                    <div className={classNames('flex gap-2 items-center w-full')}>
-                        <img src={EasyIcon} alt="" className={classNames('contain-content h-[48px] w-[48px]')}/>
-                        <Typo.P
-                            variant={TypoVariant.SecondaryLight}
-                            className={classNames('md:text-xl')}
-                        >Enhance your drumming technique with ease.</Typo.P>
-                    </div>
-                    <div className={classNames('flex gap-2 items-center w-full')}>
-                        <img src={MetronomeIcon} alt="" className={classNames('contain-content h-[48px] w-[48px]')}/>
-                        <Typo.P variant={TypoVariant.SecondaryLight} className={classNames('md:text-xl')}>Improve your rhythm and timing with interactive exercises.</Typo.P>
-                    </div>
-                    <div className={classNames('flex gap-2 items-center w-full')}>
-                        <img src={BassDrumIcon} alt="" className={classNames('contain-content h-[48px] w-[48px]')}/>
-                        <Typo.P variant={TypoVariant.SecondaryLight} className={classNames('md:text-xl')}>Master complex drum patterns with our intuitive device.</Typo.P>
-                    </div>
+                <Header/>
+                <Description/>
+                <div className={classNames('flex flex-col gap-8 order-5 justify-start w-full')}>
+                    <Block
+                        header={'Top Quality'}
+                        description={'Production using 3D printing is underway. Each device is being thoroughly tested and fine-tuned.'}
+                        icon={<ShieldIcon className={classNames('w-[20px]')}/>}
+                    />
+                    <Block
+                        header={'Customization'}
+                        description={'You can choose a device from the list of pre-configured options or customize the specifications as needed to create a unique device.'}
+                        icon={<SettingIcon className={classNames('w-[20px]')}/>}
+                    />
                 </div>
 
                 <div className={classNames('flex gap-5 w-full justify-items-start flex-wrap order-5 pt-3')}>
                     <Button
-                        variant={ButtonVariant.Primary}
-                        className={classNames('py-2 px-4')}
-                    >
-                        Learn More
-                    </Button>
-                    <Button
+                        border
                         variant={ButtonVariant.Primary}
                         className={classNames('py-2 px-4 flex items-center gap-2')}
                     >
+                        <ShoppingIcon />
                         Offers
-                        <img src={ShoppingCartIcon} alt="" className={classNames('contain-content h-[28px] w-[28px]')}/>
+                    </Button>
+                    <Button
+                        variant={ButtonVariant.Secondary}
+                        className={classNames('py-2 px-4')}
+                    >
+                        Learn More
                     </Button>
                 </div>
             </div>
@@ -71,9 +65,10 @@ export const HardwareSection: FC<HardwareSectionProps> = ({
                 'relative w-full order-4',
                 'md:basis-1/2',
             )}>
-                <div className={classNames(cls.image, 'z-30')}>
-                    <img src="https://placehold.co/394x600/171717/6C6C6C" alt=""/>
-                </div>
+                <Img src={'https://placehold.co/394x600/171717/6C6C6C'} alt={'Drum pad'}/>
+                {/*<div className={classNames('z-30 relative')}>*/}
+                {/*    <img className={classNames('object-contain h-full w-full')} src="https://placehold.co/394x600/171717/6C6C6C" alt=""/>*/}
+                {/*</div>*/}
             </div>
 
         </Section>

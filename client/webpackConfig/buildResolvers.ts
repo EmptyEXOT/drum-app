@@ -8,6 +8,6 @@ export const buildResolvers = ({src, alias}: Paths): webpack.ResolveOptions => {
         preferAbsolute: true,
         modules: [src, 'node_modules'],
         mainFiles: ['index'],
-        alias: {'@': alias.src}
+        alias: {'@': alias.src, 'assets': alias.assets}
     }
 }

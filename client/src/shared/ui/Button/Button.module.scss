@@ -1,24 +1,50 @@
 @mixin themeButton($theme) {
-  border-color: $theme;
   color: $theme;
 }
 
+@mixin border($theme) {
+  border: 1.5px solid $theme;
+  border-radius: 0.3rem;
+}
+
 @mixin base {
-  padding: 0;
   margin: 0;
-  width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.primary {
+.primary.dark {
   @include base;
-}
-
-.dark {
   @include themeButton(theme('colors.primary-light'));
 }
 
-.light {
+.primary.light {
+  @include base;
   @include themeButton(theme('colors.primary-dark'));
+}
+
+.secondary.light {
+  @include base;
+  @include themeButton(theme('colors.neutral-800'))
+}
+
+.secondary.dark {
+  @include base;
+  @include themeButton(theme('colors.secondary-light'))
+}
+
+.primary.light.border {
+  @include border(theme('colors.primary-dark'))
+}
+
+.primary.dark.border {
+  @include border(theme('colors.primary-light'))
+}
+
+.secondary.light.border {
+  @include border(theme('colors.neutral-800'))
+}
+
+.secondary.dark.border {
+  @include border(theme('colors.secondary-light'))
 }

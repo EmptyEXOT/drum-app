@@ -17,6 +17,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/webpack/*": ["./webpackConfig/*"],
+      "assets/*": ["./src/shared/assets/*"],
       "@/public/*": ["./public/*"]
     }
   },
@@ -35,6 +36,5 @@
     "./webpackConfig/*.ts",
     "./public",
     "webpack.config.ts",
-    "./.storybook/**/*.ts",
   ]
 }

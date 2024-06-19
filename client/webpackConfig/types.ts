@@ -13,6 +13,7 @@ export namespace Webpack {
         src: string,
         alias: {
             src: string,
+            assets: string,
             public: string,
         }
     }
