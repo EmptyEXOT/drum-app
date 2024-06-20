@@ -28,12 +28,13 @@ export const AboutSection: FC<AboutSectionProps> = ({
             </Typo.H2>
             <div className={classNames(
                 'contents',
-                'md:flex md:gap-14'
+                'md:flex md:gap-14',
+                'lg:gap-24'
             )}>
                 <OverviewBlock />
                 <div className={classNames(
                     'contents',
-                    'md:flex md:flex-col md:gap-12 md:basis-5/12'
+                    'md:flex md:flex-col md:gap-12 md:basis-1/2'
                 )}>
                     <ProgressBlock />
                     <CommunityBlock />

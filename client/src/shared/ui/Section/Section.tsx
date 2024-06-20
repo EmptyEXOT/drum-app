@@ -16,7 +16,9 @@ export const Section: FC<SectionProps> = ({
             'max-w-screen w-full bg-dark-primary',
             'flex flex-col justify-between px-4 items-center',
             'md:container md:mx-auto md:min-h-0 md:w-auto md:px-8',
-            'lg:px-10',
+            'lg:px-16',
+            'xl:px-32',
+            '2xl:px-64',
             className
         )}>
             {children}

@@ -8,7 +8,7 @@ interface MenuProps {
     className?: string
 }
 
-const Menu: FC<MenuProps> = ({className, ...props}) => {
+export const Menu: FC<MenuProps> = ({className, ...props}) => {
     const {isOpen} = useNavbar()
 
     return (
@@ -24,5 +24,3 @@ const Menu: FC<MenuProps> = ({className, ...props}) => {
         </div>
     );
 };
-
-export default Menu;

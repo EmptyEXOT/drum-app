@@ -13,7 +13,7 @@ export const CommunityButton: FC<CommunityButtonProps> = ({
     return (
         <Button variant={ButtonVariant.Primary}
                 className={classNames(
-                    'w-full px-4 flex flex-col gap-2 items-center justify-center bg-secondary-dark border border-solid border-neutral-500 rounded-lg py-3',
+                    'w-full px-4 flex flex-col gap-2 items-center justify-between bg-secondary-dark border border-solid border-neutral-500 rounded-lg py-3',
                     'md:w-full md:px-0 md:justify-start',
                 )}>
             {children}
