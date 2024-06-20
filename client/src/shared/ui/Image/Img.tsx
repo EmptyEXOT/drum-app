@@ -21,7 +21,7 @@ export const Img: FC<ImgProps> = ({
         )}>
             <img className={classNames(
                 'object-contain h-full w-full'
-            )} src={src as string} alt={alt}/>
+            )} src={src} alt={alt}/>
         </div>
     );
 };

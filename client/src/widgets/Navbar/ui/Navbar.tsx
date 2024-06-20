@@ -1,14 +1,14 @@
 import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
 import cls from "./Navbar.module.scss"
-import Menu from "@/widgets/Navbar/ui/Menu/Menu";
+import {Menu} from "./Menu/Menu";
 import {ButtonVariant, Button} from "@/shared/ui/Button/Button";
 import Burger from "@/shared/ui/Burger/Burger";
 import Logo from '@/shared/assets/Logo2.png'
-import {useNavbar} from "@/widgets/Navbar/hooks/useNavbar";
-import {useNavbarDispatch} from "@/widgets/Navbar/hooks/useNavbarDispatch";
-import {NavbarActionType} from "@/widgets/Navbar/types";
-import {Navigation} from "@/widgets/Navbar/ui/Navigation/Navigation";
+import {useNavbar} from "../hooks/useNavbar";
+import {useNavbarDispatch} from "../hooks/useNavbarDispatch";
+import {NavbarActionType} from "../types";
+import {Navigation} from "./Navigation/Navigation";
 
 interface NavbarProps {
     children?: ReactNode
@@ -40,7 +40,13 @@ export const Navbar: FC<NavbarProps> = (
         <>
             <div
                 className={classNames('bg-primary-dark md:bg-primary-dark z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md border-solid border-2 border-b-neutral-500', cls.navbar)}>
-                <div className={classNames('container flex justify-between mx-auto px-4 py-3 z-50')}>
+                <div className={classNames(
+                    'container flex justify-between mx-auto px-4 py-3 z-50',
+                    'md:px-8',
+                    'lg:px-16',
+                    'xl:px-32',
+                    '2xl:px-64',
+                )}>
                     <div className={classNames('flex gap-6')}>
                         <div className={classNames('flex flex-col justify-center w-full')}>
                             <img width={30} src={Logo} alt=""/>

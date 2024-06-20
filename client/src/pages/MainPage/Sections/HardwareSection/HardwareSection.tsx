@@ -27,7 +27,8 @@ export const HardwareSection: FC<HardwareSectionProps> = ({
         >
             <div className={classNames(
                 'contents',
-                'md:flex md:flex-col md:basis-1/2 md:gap-8'
+                'md:flex md:flex-col md:basis-1/2 md:gap-8',
+                'lg:basis-7/12'
             )}>
                 <Header/>
                 <Description/>
@@ -64,6 +65,7 @@ export const HardwareSection: FC<HardwareSectionProps> = ({
             <div className={classNames(
                 'relative w-full order-4',
                 'md:basis-1/2',
+                'lg:basis-5/12',
             )}>
                 <Img src={'https://placehold.co/394x600/171717/6C6C6C'} alt={'Drum pad'}/>
                 {/*<div className={classNames('z-30 relative')}>*/}

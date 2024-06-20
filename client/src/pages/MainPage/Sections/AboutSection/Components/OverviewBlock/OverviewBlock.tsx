@@ -18,7 +18,7 @@ export const OverviewBlock: FC<OverviewBlockProps> = ({
     return (
         <div className={classNames(
             'flex flex-col gap-6 mb-12',
-            'md:basis-7/12 md:mb-0',
+            'md:basis-1/2 md:mb-0',
         )}>
             <Header/>
             <div className={classNames('relative')}>
@@ -30,14 +30,17 @@ export const OverviewBlock: FC<OverviewBlockProps> = ({
             <Description/>
 
             {/*TODO move to features slice*/}
-            <div className={classNames('flex justify-center')}>
+            <div className={classNames(
+                'flex justify-center',
+                'md:justify-start'
+            )}>
                 <Button
                     variant={ButtonVariant.Primary}
                     className={classNames(
                         'py-2 px-4 flex items-center justify-center',
-                        'md:w-full md:px-0 md:justify-start',
+                        'md:ps-0'
                     )}>
-                    Get Started
+                    Explore
                     <OpenIcon/>
                 </Button>
             </div>

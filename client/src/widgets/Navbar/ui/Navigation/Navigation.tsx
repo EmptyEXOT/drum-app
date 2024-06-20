@@ -15,7 +15,6 @@ interface NavigationProps {
 
 export const Navigation: FC<NavigationProps> = ({className, ...props}) => {
     const {isMd} = useBreakpoint('md')
-    const {isSm} = useBreakpoint('sm')
 
 
     return (
@@ -24,7 +23,15 @@ export const Navigation: FC<NavigationProps> = ({className, ...props}) => {
             <NavbarLink to={'/'}><Typo.H3>Main</Typo.H3></NavbarLink>
             <NavbarLink to={'hardware'}><Typo.H3>Hardware</Typo.H3></NavbarLink>
             <NavbarLink to={'news'}><Typo.H3>News</Typo.H3></NavbarLink>
-            {!isMd ?
+            {isMd ?
+                <Menu anchor={<div><Typo.H3>Exercises</Typo.H3></div>}
+                      className={classNames(
+                          'top-8 bg-primary-dark p-4 border border-solid border-neutral-500 rounded-xl flex flex-col gap-4 right-0'
+                      )}>
+                    <NavbarLink to={'app/coordination'}><Typo.H3>Coordination</Typo.H3></NavbarLink>
+                    <NavbarLink to={'app/alphabet'}><Typo.H3>Alphabet</Typo.H3></NavbarLink>
+                    <NavbarLink to={'app/rudiments'}><Typo.H3>Rudiment</Typo.H3></NavbarLink>
+                </Menu> :
                 <DropdownProvider>
                     <Dropdown
                         title={<NavbarLink to={'app'}><Typo.H3>Exercises</Typo.H3></NavbarLink>}
@@ -38,15 +45,7 @@ export const Navigation: FC<NavigationProps> = ({className, ...props}) => {
                             <NavbarLink to={'app/rudiments'}><Typo.H3>Rudiment</Typo.H3></NavbarLink>
                         </div>
                     </Dropdown>
-                </DropdownProvider> :
-                <Menu anchor={<div><Typo.H3>Exercises</Typo.H3></div>}
-                      className={classNames(
-                          'top-8 bg-dark-primary p-4 border border-solid border-neutral-700 rounded-xl flex flex-col gap-4 right-0'
-                      )}>
-                    <NavbarLink to={'app/coordination'}><Typo.H3>Coordination</Typo.H3></NavbarLink>
-                    <NavbarLink to={'app/alphabet'}><Typo.H3>Alphabet</Typo.H3></NavbarLink>
-                    <NavbarLink to={'app/rudiments'}><Typo.H3>Rudiment</Typo.H3></NavbarLink>
-                </Menu>
+                </DropdownProvider>
             }
 
         </div>
