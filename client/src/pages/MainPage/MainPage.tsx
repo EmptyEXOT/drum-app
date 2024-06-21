@@ -9,7 +9,6 @@ import {Footer} from "@/widgets/Footer/ui/Footer";
 const MainPage = () => {
     return (
         <>
-            <Navbar/>
             <HeaderSection/>
             <AboutSection/>
             <HardwareSection/>
