@@ -5,13 +5,14 @@ import {MainPage} from "@/pages/MainPage";
 import {ErrorPage} from "@/pages/ErrorPage";
 import {CoordinationPage} from "@/pages/Coordination";
 import {Loader} from "@/shared/ui/Loader/ui/Loader";
+import {IndevPage} from "@/pages/IndevPage";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         errorElement:
             <Root>
-                <Suspense fallback={<Loader />}>
+                <Suspense fallback={<Loader/>}>
                     <ErrorPage/>
                 </Suspense>
             </Root>,
@@ -20,16 +21,85 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element:
-                    <Suspense fallback={<Loader />}>
+                    <Suspense fallback={<Loader/>}>
                         <MainPage/>
                     </Suspense>,
             },
             {
-                path: 'coordination',
+                path: 'hardware',
                 element:
-                    <Suspense fallback={<Loader />}>
-                        <CoordinationPage />
-                    </Suspense>
+                    <Suspense fallback={<Loader/>}>
+                        <IndevPage/>
+                    </Suspense>,
+            },
+            {
+                path: 'news',
+                element:
+                    <Suspense fallback={<Loader/>}>
+                        <IndevPage/>
+                    </Suspense>,
+            },
+            {
+                path: 'app',
+                children: [
+                    {
+                        path: 'coordination',
+                        element:
+                            <Suspense fallback={<Loader/>}>
+                                <IndevPage homeLink={'/app'} homeText={'App List'}/>
+                            </Suspense>
+                    },
+                    {
+                        path: 'rudiments',
+                        element:
+                            <Suspense fallback={<Loader/>}>
+                                <IndevPage homeLink={'/app'} homeText={'App List'}/>
+                            </Suspense>
+                    },
+                    {
+                        path: 'alphabet',
+                        element:
+                            <Suspense fallback={<Loader/>}>
+                                <IndevPage homeLink={'/app'} homeText={'App List'}/>
+                            </Suspense>
+                    },
+                    {
+                        path: '*',
+                        element:
+                            <Navigate to={'/app'}/>,
+                    },
+                ]
+            },
+            {
+                path: 'auth',
+                children: [
+                    {
+                        index: true,
+                        element:
+                            <Suspense fallback={<Loader/>}>
+                                <IndevPage/>
+                            </Suspense>
+                    },
+                    {
+                        path: 'register',
+                        element:
+                            <Suspense fallback={<Loader/>}>
+                                <IndevPage/>
+                            </Suspense>
+                    },
+                    {
+                        path: 'recover',
+                        element:
+                            <Suspense fallback={<Loader/>}>
+                                <IndevPage/>
+                            </Suspense>
+                    },
+                    {
+                        path: '*',
+                        element:
+                            <Navigate to={'/auth'}/>,
+                    },
+                ]
             }
         ],
     },

@@ -39,7 +39,7 @@ export const Navbar: FC<NavbarProps> = (
     return (
         <>
             <div
-                className={classNames('bg-primary-dark md:bg-primary-dark z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md border-solid border-2 border-b-neutral-500', cls.navbar)}>
+                className={classNames('bg-primary-dark md:bg-primary-dark z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md border-solid border-b-2 border-b-neutral-500', cls.navbar)}>
                 <div className={classNames(
                     'container flex justify-between mx-auto px-4 py-3 z-50',
                     'md:px-8',
