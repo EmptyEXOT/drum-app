@@ -1,0 +1,1 @@
+export {AlphabetAppPageAsync as AlphabetAppPage} from './ui/AlphabetAppPage.async'

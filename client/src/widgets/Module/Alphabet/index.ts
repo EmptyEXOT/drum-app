@@ -1,0 +1,1 @@
+export {AlphabetProps, Alphabet} from './ui/Alphabet'
