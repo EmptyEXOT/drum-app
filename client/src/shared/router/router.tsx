@@ -3,9 +3,10 @@ import {Root} from "@/root";
 import React, {Suspense} from "react";
 import {MainPage} from "@/pages/MainPage";
 import {ErrorPage} from "@/pages/ErrorPage";
-import {CoordinationPage} from "@/pages/Coordination";
 import {Loader} from "@/shared/ui/Loader/ui/Loader";
 import {IndevPage} from "@/pages/IndevPage";
+import {AppPage} from "@/pages/AppPage";
+import {AlphabetAppPage} from "@/pages/AlphabetAppPage";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'app',
+                element:
+                    <Suspense fallback={<Loader/>}>
+                        <AppPage/>
+                    </Suspense>,
                 children: [
                     {
                         path: 'coordination',
@@ -60,7 +65,7 @@ export const router = createBrowserRouter([
                         path: 'alphabet',
                         element:
                             <Suspense fallback={<Loader/>}>
-                                <IndevPage homeLink={'/app'} homeText={'App List'}/>
+                                <AlphabetAppPage />
                             </Suspense>
                     },
                     {
