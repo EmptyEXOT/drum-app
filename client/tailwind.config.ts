@@ -39,6 +39,7 @@ export default {
       'neutral-800': '#1F1F1F',
       'cyan-300': '#0D7070',
       'cyan-500': '#185656',
+      'cyan-600': '#084D4D',
       'cyan-800': '#0B2727',
       'red-light': '#D72E4D',
       'red-dark': '#6B2431',

@@ -22,7 +22,7 @@ const AppPage: FC<AppPageProps> = ({
 
     return (
         <div className={classNames('bg-secondary-dark w-screen min-h-screen')}>
-            <SidebarProvider>
+            <SidebarProvider isOpenDefault={false}>
                 <Sidebar/>
                 {/*<Button*/}
                 {/*    variant={ButtonVariant.Primary}*/}

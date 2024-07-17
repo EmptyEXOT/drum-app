@@ -1,4 +1,4 @@
-import React, {ReactNode, FC} from 'react';
+import React, {FC} from 'react';
 import {Typo} from "@/shared/ui/Typo/Typo";
 
 export interface AlphabetProps {

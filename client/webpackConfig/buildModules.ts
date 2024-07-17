@@ -38,9 +38,15 @@ export const buildModules = (): webpack.ModuleOptions => {
         issuer: /\.[jt]sx?$/,
     }
 
+    const wavLoader = {
+        test: /\.wav$/,
+            type: 'asset/resource'
+    }
+
     rules.push(fileLoader)
     rules.push(svgLoader)
     rules.push(tsLoader);
     rules.push(stylesLoader);
+    rules.push(wavLoader);
     return {rules};
 }

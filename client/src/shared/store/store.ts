@@ -2,10 +2,13 @@ import {configureStore, ReducersMapObject} from '@reduxjs/toolkit'
 import {StateSchema} from "./types";
 import {$api} from "@/shared/api/api";
 import {AxiosInstance} from "axios";
+import {sheetReducer} from "@/entities/Sheet/model/slice/Sheet.slice";
+import {trackReducer} from "@/entities/Track/model/slice/Track.slice";
 
 export const createReduxStore = (initialState?: StateSchema) => {
     const rootReducer: ReducersMapObject<StateSchema> = {
-
+        sheet: sheetReducer,
+        track: trackReducer,
     }
 
     return configureStore({
