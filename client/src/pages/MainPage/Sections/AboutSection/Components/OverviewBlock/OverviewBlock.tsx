@@ -29,7 +29,7 @@ export const OverviewBlock: FC<OverviewBlockProps> = ({
             </div>
             <Description/>
 
-            {/*TODO move to features slice*/}
+            {/*TODO move to features model*/}
             <div className={classNames(
                 'flex justify-center',
                 'md:justify-start'
