@@ -14,12 +14,10 @@ if (!node) {
 
 createRoot(node)
     .render(
-        <StrictMode>
-            <ThemeProvider>
-                <StoreProvider>
-                    <RouterProvider router={router}/>
-                </StoreProvider>
-            </ThemeProvider>
-        </StrictMode>
+        <ThemeProvider>
+            <StoreProvider>
+                <RouterProvider router={router}/>
+            </StoreProvider>
+        </ThemeProvider>
     )
 
