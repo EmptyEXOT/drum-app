@@ -16,6 +16,7 @@ import {IKick} from "@/pages/AlphabetAppPage/Kick";
 import {selectCaret} from "@/entities/Track/model/selectors/caret.selector";
 import {selectCurrBarStartTime} from "@/entities/Track/model/selectors/currBarStartTime.selector";
 import {getTransport} from "tone";
+import {trackActions} from "@/entities/Track/model/slice/Track.slice";
 
 interface AlphabetAppPageProps {
     children?: ReactNode,
@@ -31,12 +32,6 @@ const isCurrBarByIdx = (caretPos: number, idx: number): boolean => {
         || (Math.floor((caretPos - 1) / 4) < 0 && idx === 0)
 }
 
-const addKickToBar = (kicks: IKick[][], bar: number, kick: IKick): IKick[][] => {
-    kicks[bar].push(kick);
-    console.log(kicks)
-    return kicks;
-}
-
 const AlphabetAppPage: FC<AlphabetAppPageProps> = ({
                                                        children,
                                                        ...props
@@ -44,16 +39,8 @@ const AlphabetAppPage: FC<AlphabetAppPageProps> = ({
     const dispatchSidebar = useSidebarDispatch();
     const dispatch = useAppDispatch();
     const bars: Note[][] = useAppSelector(selectBars);
-    // const dispatchSheet = useAppDispatch()
-    // const bars = useAppSelector(selectBars);
     const caret = useAppSelector(selectCaret);
     const currBarStartTime = useAppSelector(selectCurrBarStartTime);
-    const [kicks, addKick] = useState<IKick[][]>([
-        [], [], [], [],
-        [], [], [], [],
-        [], [], [], [],
-        [], [], [], [],
-    ])
 
     useEffect(() => {
         dispatchSidebar({
@@ -74,15 +61,12 @@ const AlphabetAppPage: FC<AlphabetAppPageProps> = ({
                     variant={ButtonVariant.Primary}
                     className={classNames('p-3')}
                     onClick={() => {
-                        console.log(Date.now() - currBarStartTime);
-                        addKick(
-                            prevState =>
-                                addKickToBar(
-                                    prevState,
-                                    barByCaret(caret.note),
-                                    {pos: (Date.now() - currBarStartTime) / (((60 / getTransport().bpm.value) * 1000 * 4) / 256)}
-                                )
-                        )
+                        const time = Date.now()
+                        console.log(`onClick handler: ${time}`)
+                        dispatch(sheetActions.addKick({
+                            bar: barByCaret(caret.note),
+                            pos: (time - currBarStartTime) / (((60 / getTransport().bpm.value) * 1000 * 4) / 256)
+                        }))
                     }}
                 >
                     <Typo.H3>Kick</Typo.H3>
@@ -93,8 +77,8 @@ const AlphabetAppPage: FC<AlphabetAppPageProps> = ({
                     {bars.map(
                         (barNotes, idx) =>
                             <Bar
+                                pos={idx}
                                 isActive={isCurrBarByIdx(caret.note, idx)}
-                                kicks={kicks[idx]}
                                 border={!idx ? BarBorder.End : BarBorder.Both}
                                 notes={barNotes}
                                 key={idx}

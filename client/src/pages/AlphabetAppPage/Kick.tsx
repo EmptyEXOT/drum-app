@@ -21,7 +21,7 @@ export const Kick: FC<KickProps> = ({
         style={{
             left: `${pos}px`
         }}
-            className={classNames('w-2 h-2 bg-red-light absolute top-2 rounded-3xl')}
+            className={classNames('w-2 h-2 bg-red-light absolute top-5 rounded-3xl')}
         />
     );
 };
