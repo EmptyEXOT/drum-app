@@ -33,10 +33,8 @@ export const trackSlice = createSlice({
             const newBar = Math.floor((state.caret.note-1) / 4)
             if (state.caret.bar < newBar) {
                 state.currBarStartTime = now;
-                console.log(now)
             }
             state.caret.bar = newBar
-            // console.log(state.caret.pos)
         },
         setBpm: (state, action: PayloadAction<number>) => {
             getTransport().bpm.value = action.payload
