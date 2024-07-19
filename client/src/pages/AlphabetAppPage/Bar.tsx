@@ -1,9 +1,11 @@
-import React, {FC, ReactNode, useEffect} from 'react';
+import React, {FC, memo, ReactNode, useEffect} from 'react';
 import {Note, NoteType} from "@/pages/AlphabetAppPage/types";
 import classNames from "classnames";
 import QuartNote from "@/shared/notes/Quarter.png";
 import PauseQuart from "@/shared/notes/PauseQuart.png";
 import {IKick, Kick} from "@/pages/AlphabetAppPage/Kick";
+import {useAppSelector} from "@/shared/store/hooks";
+import {selectBarKicks} from "@/entities/Sheet/model/selectors/kicks.selector";
 
 export enum BarBorder {
     Start = 'border-l border-solid border-l-neutral-400',
@@ -15,21 +17,19 @@ interface BarProps {
     children?: ReactNode,
     notes: Note[],
     border: BarBorder,
-    kicks: IKick[],
     isActive: boolean,
+    pos: number,
 }
 
-export const Bar: FC<BarProps> = ({
-                                      children,
-                                      notes,
-                                      border = BarBorder.End,
-                                      kicks = [] as IKick[],
-                                      isActive,
-                                      ...props
-                                  }) => {
-    useEffect(() => {
-        console.log(kicks)
-    }, [kicks]);
+export const Bar: FC<BarProps> = memo(({
+                                           children,
+                                           notes,
+                                           border = BarBorder.End,
+                                           pos,
+                                           isActive,
+                                           ...props
+                                       }) => {
+    const kicks = useAppSelector(selectBarKicks(pos))
 
     return (
         <div
@@ -55,4 +55,4 @@ export const Bar: FC<BarProps> = ({
             </div>
         </div>
     );
-};
+});
